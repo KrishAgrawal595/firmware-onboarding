@@ -16,10 +16,10 @@ void setup()
 
     if (!BMEI2CInterfaceInstance::instance().begin())
     {
-        Serial.println("ERR: Could not find a valid BME280 sensor on I2C!");
+        Serial.println("no valid BME280 sensor on I2C");
         while (1);
     }
-    Serial.println("BME280 I2C Interface initialized successfully.");
+    Serial.println("BME280 I2C Interface successful.");
 }
 
 void loop()
