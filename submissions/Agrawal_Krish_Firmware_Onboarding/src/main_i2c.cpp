@@ -13,10 +13,9 @@ void setup()
     LEDControllerInstance::create(controller);
 
     LEDControllerInstance::instance().init();
-
     if (!BMEI2CInterfaceInstance::instance().begin())
     {
-        Serial.println("no valid BME280 sensor on I2C");
+        Serial.println("ERR");
         while (1);
     }
     Serial.println("BME280 I2C Interface successful.");
@@ -26,6 +25,6 @@ void loop()
 {
     unsigned long currentMillis = millis();
     float temp = BMEI2CInterfaceInstance::instance().readTemperature();
-
+    Serial.println(temp);
     LEDControllerInstance::instance().update(temp, currentMillis);
 }
